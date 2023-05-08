@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { ReactComponent as BasketIcon } from "../../assets/icons/Group.svg";
-export const OrdetBusket = ({ children }) => {
+import { useContext } from "react";
+import { CardContext } from "../../store/Card-contex";
+
+export const OrdetBusket = ({ children, onToggle }) => {
+  const { totalAmount } = useContext(CardContext);
+
   return (
-    <Button>
-      <BasketIcon /> <OrderTitle>{children}</OrderTitle>{" "}
-      <OrderBasketCount>7</OrderBasketCount>
+    <Button onClick={onToggle}>
+      <BasketIcon /> <OrderTitle>{children}</OrderTitle>
+      <OrderBasketCount>{totalAmount}</OrderBasketCount>
     </Button>
   );
 };

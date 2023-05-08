@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { OrdetBusket } from "./OrderBusket";
-export const Header = () => {
+export const Header = ({ onToggle }) => {
   return (
     <Container>
       <h1> ReacrMeals</h1>
-      <OrdetBusket> Your card </OrdetBusket>
+      <OrdetBusket onToggle={onToggle}> Your card </OrdetBusket>
     </Container>
   );
 };
@@ -17,4 +17,11 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   color: white;
+  position: fixed;
+  z-index: 200;
+  h1 {
+    font-weight: 600;
+    font-size: 38px;
+    color: #fff;
+  }
 `;
